@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-                'talker = hagen_control.publisher_member_function:main',
-                'listener = hagen_control.subscriber_member_function:main',
+                'diff_drive = hagen_control.hagen_control_strategy:main',
+                'PD_control = hagen_control.diff_drive_PD_control:main',
         ],
     },
 )

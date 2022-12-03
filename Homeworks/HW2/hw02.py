@@ -1,10 +1,7 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
-from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
-import time 
 import numpy as np 
 import matplotlib.pyplot as plt
 
@@ -12,9 +9,7 @@ class MinimalPublisher(Node):
     def __init__(self, delta_t):
         super().__init__('minimal_publisher')
         self.publisher_ = self.create_publisher(Twist, '/hagen/cmd_vel', 30)
-        self.vel_sub = self.create_subscription(Twist, '/hagen/cmd_vel', self.listener_callback, 10)
         self.odom_sub = self.create_subscription(Odometry, "/hagen/odom", self.set_pose, 20)
-        self.vel_sub
         self.odom_sub
         self.i = 0
         self.set_q_init = None
@@ -52,9 +47,7 @@ class MinimalPublisher(Node):
         yaw = np.arctan2(siny_cosp, cosy_cosp)
 
         return roll, pitch, yaw
-
-    def listener_callback(self, msg):
-        pass    
+   
     
     def wrap_to_pi(self, x):
         x = np.array([x])

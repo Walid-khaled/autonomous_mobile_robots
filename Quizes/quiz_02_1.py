@@ -117,7 +117,7 @@ def main(args=None):
     plt.ylabel("Y coord")
     plt.title("X-Y coords")
     plt.legend()
-    plt.savefig("fig.png")
+    # plt.savefig("fig.png")
     plt.show()
 
 if __name__ == '__main__':
