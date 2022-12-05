@@ -52,6 +52,12 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
 3. Launch Hagen in an empty world:
 
        ros2 launch hagen_gazebo hagen.launch.py world:=hagen_empty.world
+       
+To avoid these steps, in your terminal, naviagate to the repository directory and make the file 'run.sh' executable, then run it to start the simulation directly. 
+
+       cd ~/ros2_ws/src/autonomous_mobile_robots
+       chmod +x run.sh
+       ./run.sh
 
 Acknowledgement
    https://github.com/chapulina/dolly
