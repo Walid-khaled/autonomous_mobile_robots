@@ -83,7 +83,7 @@ As shown, the odom data diverge by time when reaching the path points without an
 ### PD Controller
 A PD controller was developed to incorporate the odometery data as feedback.
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/90580636/205746842-4abcf643-457c-45e6-ae3a-64f5140043e4.gif)
+<!-- ![ezgif com-gif-maker](https://user-images.githubusercontent.com/90580636/205746842-4abcf643-457c-45e6-ae3a-64f5140043e4.gif) -->
 
 Acknowledgement
 
