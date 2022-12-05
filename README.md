@@ -81,25 +81,16 @@ For example this is the output for **reference path control**.
 As shown, the odom data diverge by time when reaching the path points without any feedback from the odometery data.
 
 ### PD Controller
-A PD controller was developed to incorporate the odometery data as feedback.
-
-<!-- ![ezgif com-gif-maker](https://user-images.githubusercontent.com/90580636/205746842-4abcf643-457c-45e6-ae3a-64f5140043e4.gif) -->
-
-Acknowledgement
-
-https://user-images.githubusercontent.com/90580636/205747065-0f8687bb-644c-49ef-bcd8-4d557b53b5a6.mp4
-
-
-   https://github.com/chapulina/dolly
-
-
+A PD controller was developed to incorporate the odometery data as feedback. It is implemented in 2 stages; reaching yhe target position and correcting the orientation.
 
 https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-9913-4f9b7f47750d.mp4
 
-
-
-
-
-
 ![Figure_1](https://user-images.githubusercontent.com/90580636/205747519-f6d9cff2-db78-448a-bbf1-0c6f8e797446.png)
+
+### EKF Localization
+![Figure_1](https://user-images.githubusercontent.com/90580636/205748556-8123b8fe-563d-4638-9a0a-b209e3661b0b.png)
+
+Acknowledgement
+
+   https://github.com/chapulina/dolly
 
