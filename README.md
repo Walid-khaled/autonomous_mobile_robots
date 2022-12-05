@@ -53,7 +53,6 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
 
        ros2 launch hagen_gazebo hagen.launch.py world:=hagen_empty.world
         
-
    To avoid these steps, in your terminal, naviagate to the repository directory and make the file **"run.sh"** executable, then run it to start the simulation directly.
     
        cd ~/ros2_ws/src/autonomous_mobile_robots
@@ -86,6 +85,7 @@ A PD controller was developed to incorporate the odometery data as feedback. It 
 https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-9913-4f9b7f47750d.mp4
 
 ![Figure_1](https://user-images.githubusercontent.com/90580636/205747519-f6d9cff2-db78-448a-bbf1-0c6f8e797446.png)
+![image](https://user-images.githubusercontent.com/90580636/205748797-a46efa4d-4f1b-4f1b-a161-5048ac3e13c6.png)
 
 ### EKF Localization
 ![Figure_1](https://user-images.githubusercontent.com/90580636/205748556-8123b8fe-563d-4638-9a0a-b209e3661b0b.png)
