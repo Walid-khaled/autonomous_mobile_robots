@@ -88,9 +88,10 @@ https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-
 
 ![Figure_1](https://user-images.githubusercontent.com/90580636/205747519-f6d9cff2-db78-448a-bbf1-0c6f8e797446.png)
 
-<p float="center">
+<p align="center">
     <img src="https://user-images.githubusercontent.com/90580636/205748797-a46efa4d-4f1b-4f1b-a161-5048ac3e13c6.png"/>
 </p>
+
 
 <!-- ![Figure_2](https://user-images.githubusercontent.com/90580636/205748797-a46efa4d-4f1b-4f1b-a161-5048ac3e13c6.png)
  -->
