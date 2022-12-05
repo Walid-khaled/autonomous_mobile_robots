@@ -42,7 +42,8 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
        . /usr/share/gazebo/setup.sh
        . ~/ws/install/setup.bash
 
-       > *Tip*: If the command `ros2 pkg list | grep hagen_gazebo` comes up empty after setting up the environment, Gazebo support wasn't correctly setup.
+   > *Tip*: If the command `ros2 pkg list | grep hagen_gazebo` comes up empty after setting up the environment, 
+     Gazebo support wasn't correctly setup.
 
 2. Launch Hagen in a city (this will take some time to download models):
 
