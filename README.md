@@ -9,13 +9,13 @@ The course contents includes:
 
 ## Setup
 
-1. Install at least one simulator,
+1. Install at least one simulator:
    [Gazebo](http://gazebosim.org/tutorials?cat=install) 
 
-2. Install the appropriate ROS 2 version as instructed
+2. Install the appropriate ROS 2 version as instructed:
    [here](https://index.ros.org/doc/ros2/Installation/Linux-Install-Debians/).
 
-3. Clone the repository
+3. Clone the repository:
     
        mkdir -p ~/ros2_ws/src
        cd ~/ros2_ws/src
@@ -52,14 +52,15 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
 3. Launch Hagen in an empty world:
 
        ros2 launch hagen_gazebo hagen.launch.py world:=hagen_empty.world
-       
-To avoid these steps, in your terminal, naviagate to the repository directory and make the file 'run.sh' executable, then run it to start the simulation directly. 
+        
 
-       ros2 launch hagen_gazebo hagen.launch.py world:=hagen_empty.world
-
+To avoid these steps, in your terminal, naviagate to the repository directory and make the file 'run.sh' executable, then run it to start the simulation directly.
+    
        cd ~/ros2_ws/src/autonomous_mobile_robots
        chmod +x run.sh
        ./run.sh
+
+
 
 Acknowledgement
    https://github.com/chapulina/dolly
