@@ -17,9 +17,9 @@ The course contents includes:
 
 3. Clone the repository
     
-    mkdir -p ~/ros2_ws/src
-    cd ~/ros2_ws/src
-    git clone https://github.com/GPrathap/autonomous_mobile_robots.git
+       mkdir -p ~/ros2_ws/src
+       cd ~/ros2_ws/src
+       git clone https://github.com/GPrathap/autonomous_mobile_robots.git
 
 4. Install dependencies:
 
