@@ -80,11 +80,9 @@ For example this is the output for **reference path control**.
 
 As shown, the odom data diverge by time when reaching the path points without any feedback from the odometery data.
 
-
 ### PD Controller
 
-
-A PD controller was developed to incorporate the odometery data as feedback. It is implemented in 2 stages; reaching yhe target position and correcting the orientation.
+A PD controller was developed to incorporate the odometery data as feedback. It is implemented in 2 stages; reaching yhe target position and correcting the orientation. Check **"hagen_control/hagen_control/diff_drive_PD_control.py"**
 
 https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-9913-4f9b7f47750d.mp4
 
@@ -94,12 +92,12 @@ https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-
     <img src="https://user-images.githubusercontent.com/90580636/205748797-a46efa4d-4f1b-4f1b-a161-5048ac3e13c6.png"/>
 </p>
  
- 
+
 ### EKF Localization
 
 ![Figure_1](https://user-images.githubusercontent.com/90580636/205748556-8123b8fe-563d-4638-9a0a-b209e3661b0b.png)
 
-Acknowledgement
 
-   https://github.com/chapulina/dolly
+## Acknowledgement
 
+https://github.com/GPrathap/autonomous_mobile_robots
