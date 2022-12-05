@@ -107,7 +107,7 @@ class MinimalPublisher(Node):
                 self.send_vel(v, w)
                 self.time_utilized  =  self.time_utilized + self.Ts   
                 self.n +=1
-                self.Simulation_q = np.vstack([self.Simulation_q, self.odom_data])
+                # self.Simulation_q = np.vstack([self.Simulation_q, self.odom_data])
                 self.v.append(v)
                 self.w.append(w)
                 if abs(ePhi) < self.dTol:
