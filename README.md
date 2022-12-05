@@ -62,6 +62,7 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
 
 
 ## Main results
+### Control Strategies:
 In **"hagen_control/hagen_control/hagen_control_strategy.py"**, specify one of the following controller at the **main()** and **timer_callback()** functions:
 - Control to reference pose
 - Control to reference pose via an intermediate point
@@ -73,10 +74,16 @@ For example this is the output for **reference path control**.
 
 
 ![Figure_1](https://user-images.githubusercontent.com/90580636/205742442-8d85d9fe-d796-46a2-90dc-d46950d02255.png)
-<p float="left">
+<!-- <p float="left">
     <img src="https://user-images.githubusercontent.com/90580636/205742442-8d85d9fe-d796-46a2-90dc-d46950d02255.png" width="600" height="450" />
-</p>
+</p> -->
 
+As shown, the odom data diverge by time when reaching the path points without any feedback from the odometery data.
+
+### PD Controller
+A PD controller was developed to incorporate the odometery data as feedback.
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/90580636/205746842-4abcf643-457c-45e6-ae3a-64f5140043e4.gif)
 
 Acknowledgement
    https://github.com/chapulina/dolly
