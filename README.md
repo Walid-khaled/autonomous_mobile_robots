@@ -54,7 +54,7 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
        ros2 launch hagen_gazebo hagen.launch.py world:=hagen_empty.world
         
 
-   To avoid these steps, in your terminal, naviagate to the repository directory and make the file 'run.sh' executable, then run it to start the simulation directly.
+   To avoid these steps, in your terminal, naviagate to the repository directory and make the file **"run.sh"** executable, then run it to start the simulation directly.
     
        cd ~/ros2_ws/src/autonomous_mobile_robots
        chmod +x run.sh
@@ -62,19 +62,19 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
 
 
 ## Main results
-In 'hagen_control/hagen_control/hagen_control_strategy.py', specify one of the following controller at the **main()** and **timer_callback()** functions:
+In **"hagen_control/hagen_control/hagen_control_strategy.py"**, specify one of the following controller at the **main()** and **timer_callback()** functions:
 - Control to reference pose
 - Control to reference pose via an intermediate point
 - Control to reference pose via an intermediate direction
 - Reference path control
 
 After the simulation finish, a plot will be genereated to visualize the odometery data with respect to the actual one. 
-For example this is the output for reference path control.
+For example this is the output for **reference path control**.
 
 
-<!-- ![Figure_1](https://user-images.githubusercontent.com/90580636/205742442-8d85d9fe-d796-46a2-90dc-d46950d02255.png) -->
+![Figure_1](https://user-images.githubusercontent.com/90580636/205742442-8d85d9fe-d796-46a2-90dc-d46950d02255.png)
 <p float="left">
-    <img src="https://user-images.githubusercontent.com/90580636/205742442-8d85d9fe-d796-46a2-90dc-d46950d02255.png" width="500" height="450" />
+    <img src="https://user-images.githubusercontent.com/90580636/205742442-8d85d9fe-d796-46a2-90dc-d46950d02255.png" width="600" height="450" />
 </p>
 
 
