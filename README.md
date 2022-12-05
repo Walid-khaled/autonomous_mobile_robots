@@ -61,6 +61,22 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
        ./run.sh
 
 
+## Main results
+In 'hagen_control/hagen_control/hagen_control_strategy.py', specify one of the following controller at the **main()** and **timer_callback()** functions:
+- Control to reference pose
+- Control to reference pose via an intermediate point
+- Control to reference pose via an intermediate direction
+- Reference path control
+
+After the simulation finish, a plot will be genereated to visualize the odometery data with respect to the actual one. 
+For example this is the output for reference path control.
+
+
+<!-- ![Figure_1](https://user-images.githubusercontent.com/90580636/205742442-8d85d9fe-d796-46a2-90dc-d46950d02255.png) -->
+<p float="left">
+    <img src="https://user-images.githubusercontent.com/90580636/205742442-8d85d9fe-d796-46a2-90dc-d46950d02255.png" width="500" height="450" />
+</p>
+
 
 Acknowledgement
    https://github.com/chapulina/dolly
