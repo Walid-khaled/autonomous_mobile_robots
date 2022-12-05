@@ -1,4 +1,6 @@
 # Autonomous Mobile Robots
+
+This repository contains an implementation of the Autonomous Mobile Robots course for ROCV master's program at Innopolis University. The course is instructed by (Geesara Prathap)[https://github.com/GPrathap] 
 ## Course Structure :space_invader:
     
 - Section 0 :alien:	
