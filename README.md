@@ -23,13 +23,13 @@ The course contents includes:
 
 4. Install dependencies:
 
-    cd ~/ros2_ws
-    rosdep install --from-paths src --ignore-src -r -y
+       cd ~/ros2_ws
+       rosdep install --from-paths src --ignore-src -r -y
 
 5. Build and install:
 
-    cd ~/ros2_ws
-    colcon build
+       cd ~/ros2_ws
+       colcon build
 
 ## Run
 
@@ -39,18 +39,18 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
 
 1. Setup environment variables (the order is important):
 
-    . /usr/share/gazebo/setup.sh
-    . ~/ws/install/setup.bash
+       . /usr/share/gazebo/setup.sh
+       . ~/ws/install/setup.bash
 
-    > *Tip*: If the command `ros2 pkg list | grep hagen_gazebo` comes up empty after setting up the environment, Gazebo support wasn't correctly setup.
+       > *Tip*: If the command `ros2 pkg list | grep hagen_gazebo` comes up empty after setting up the environment, Gazebo support wasn't correctly setup.
 
 2. Launch Hagen in a city (this will take some time to download models):
 
-    ros2 launch hagen_gazebo hagen.launch.py world:=hagen_city.world
+       ros2 launch hagen_gazebo hagen.launch.py world:=hagen_city.world
 
 3. Launch Hagen in an empty world:
 
-    ros2 launch hagen_gazebo hagen.launch.py world:=hagen_empty.world
+       ros2 launch hagen_gazebo hagen.launch.py world:=hagen_empty.world
 
 Acknowledgement
    https://github.com/chapulina/dolly
