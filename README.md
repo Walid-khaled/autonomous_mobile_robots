@@ -61,6 +61,7 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
 
 
 ## Main results
+
 ### Control Strategies:
 In **"hagen_control/hagen_control/hagen_control_strategy.py"**, specify one of the following controller at the **main()** and **timer_callback()** functions:
 - Control to reference pose
@@ -80,14 +81,16 @@ For example this is the output for **reference path control**.
 As shown, the odom data diverge by time when reaching the path points without any feedback from the odometery data.
 
 ### PD Controller
+
 A PD controller was developed to incorporate the odometery data as feedback. It is implemented in 2 stages; reaching yhe target position and correcting the orientation.
 
 https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-9913-4f9b7f47750d.mp4
 
 ![Figure_1](https://user-images.githubusercontent.com/90580636/205747519-f6d9cff2-db78-448a-bbf1-0c6f8e797446.png)
-![image](https://user-images.githubusercontent.com/90580636/205748797-a46efa4d-4f1b-4f1b-a161-5048ac3e13c6.png)
+![Figure_2](https://user-images.githubusercontent.com/90580636/205748797-a46efa4d-4f1b-4f1b-a161-5048ac3e13c6.png)
 
 ### EKF Localization
+
 ![Figure_1](https://user-images.githubusercontent.com/90580636/205748556-8123b8fe-563d-4638-9a0a-b209e3661b0b.png)
 
 Acknowledgement
