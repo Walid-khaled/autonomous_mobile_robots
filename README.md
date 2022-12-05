@@ -55,6 +55,7 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
        
 To avoid these steps, in your terminal, naviagate to the repository directory and make the file 'run.sh' executable, then run it to start the simulation directly. 
 
+       ros2 launch hagen_gazebo hagen.launch.py world:=hagen_empty.world
 
        cd ~/ros2_ws/src/autonomous_mobile_robots
        chmod +x run.sh
