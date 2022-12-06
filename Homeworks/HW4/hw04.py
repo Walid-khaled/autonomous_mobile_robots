@@ -15,7 +15,7 @@ from numpy.random import uniform
 import scipy.stats
 
 class PFLocalization():
-    def __init__(self, A, B, dt, std_vel, std_steer, dim_x=3, dim_z=2, dim_u=2):
+    def __init__(self, A, B, dt, std_vel, std_steer, dim_x=3, dim_z=6, dim_u=2):
         self.dt = dt
         self.std_vel = std_vel
         self.std_steer = std_steer
@@ -30,6 +30,9 @@ class PFLocalization():
         self.K = np.zeros(self.x.shape) # kalman gain
         self.y = np.zeros((dim_z, 1))
         self._I = np.eye(dim_x)
+        self.dim_z = dim_z
+        self.dim_x = dim_x 
+        self.sensor_size = 2
         self.A = A
         self.B = B
         self.C = [(A[0]+B[0])/2, (A[1]+B[1])/2]
@@ -99,7 +102,7 @@ class PFLocalization():
             y[1] -= 2 * np.pi
         return y
     
-    def predict(self, u):
+    def ekf_predict(self, u):
         self.x = self.x_forward(self.x, u, self.dt)
         self.subs[self._x] = self.x[0, 0]
         self.subs[self._y] = self.x[1, 0]
@@ -146,6 +149,32 @@ class PFLocalization():
         weights /= sum(weights) 
         return weights
         
+    def ekf_update(self, z, landmarks):
+        H_total = np.empty((self.dim_z, self.dim_x))
+        Hx_total = np.empty((self.dim_z, 1))
+        for id, land_mark in enumerate(landmarks):
+            Hx, H = self.get_linearized_measurement_model(self.x, land_mark)
+            H_total[id*H.shape[0]:(id+1)*H.shape[0], 0:self.dim_x] = H
+            Hx_total[id*H.shape[0]:(id+1)*H.shape[0], 0:1] = Hx
+
+        H = H_total
+        Hx = Hx_total 
+        PHT = np.dot(self.P, H.T)
+        self.K = PHT.dot(np.linalg.inv(np.dot(H, PHT) + self.R))
+        self.y = np.empty(self.dim_z)
+
+        for id in range(0, int(Hx.shape[0]/self.sensor_size)):
+            y_i = self.residual(z[id*self.sensor_size:(id+1)*self.sensor_size], Hx[id*self.sensor_size:(id+1)*self.sensor_size, 0:1].flatten())
+            self.y[id*self.sensor_size:(id+1)*self.sensor_size] = y_i
+       
+        self.x = self.x + np.reshape(np.dot(self.K, self.y),(self.x.shape))
+
+        # P = (I-KH)P(I-KH)' + KRK' is more numerically stable
+        # P = (I-KH)P is the optimal gain 
+        I_KH = self._I - np.dot(self.K, H)
+        self.P = np.dot(I_KH, self.P).dot(I_KH.T) + np.dot(self.K, self.R).dot(self.K.T)
+        self.z = deepcopy(z)
+
     def z_landmark(self, lmark, sim_pos, std_rng, std_brg):
         x, y = sim_pos[0, 0], sim_pos[1, 0]
         d = np.sqrt((lmark[0] - x)**2 + (lmark[1] - y)**2)  
@@ -213,7 +242,7 @@ class PFLocalization():
                 j += 1
         return indexes
     
-    def run_localization(self, u, N, landmarks, iteration_num=18, sensor_std_err=.1, initial_x=None):
+    def run_localization(self, u, N, landmarks, iteration_num=18, sensor_std_err=.1, std_range=0.3, std_bearing=0.1, initial_x=None):
         plt.figure()
         # create particles and weights
         if initial_x is not None:
@@ -235,6 +264,20 @@ class PFLocalization():
             track.append(sim_pos)
             particles = self.predict(particles, u=u, std=(.02, .05), dt=self.dt)
             # incorporate measurements
+            
+            for j in range(len(particles)):
+                self.x = particles[j,:].reshape(-1,1)
+                self.ekf_predict(u=u)
+
+                z_all_vec = []
+                for lmark in landmarks:
+                    z = self.z_landmark(lmark, sim_pos, std_range, std_bearing)
+                    z_all_vec.append(z)
+                z_all_vec = np.array(z_all_vec).flatten()
+                self.ekf_update(z_all_vec, landmarks)
+ 
+                particles[j,:] = self.x.reshape(1,-1)
+
             weights = self.update(particles, weights,  sim_pos.flatten()[0:2], R=sensor_std_err, landmarks=landmarks)
             if self.neff(weights) < N/2:
                 indexes = self.resample_particles(weights)
@@ -252,7 +295,7 @@ class PFLocalization():
         xs = np.array(xs)
 
         plt.plot(track[:, 0], track[:,1],  marker='+', color='k', lw=3, label='Real')
-        plt.plot(xs[:, 0], xs[:,1], marker='s', color='r', label='PF')
+        plt.plot(xs[:, 0], xs[:,1], marker='s', color='r', label='PF_EKF')
         # plt.legend([p1, p2], ['Real', 'PF'], loc=4, numpoints=1)
         plt.axis('equal')
         plt.title("PF-EKF Robot localization From B to A", fontsize=16)
@@ -274,4 +317,4 @@ A = [20, 0]
 landmarks = array([[5, 30], [-5, 30], [5, 0]])
 pfl = PFLocalization(A, B, dt, std_vel=2.0, std_steer=np.radians(1))
 # pfl.run_localization(100, landmarks, initial_x=(1,1, np.pi/4), iteration_num=500)
-pfl.run_localization(u, 500, landmarks, iteration_num=N)
+pfl.run_localization(u, 100, landmarks, iteration_num=N)
