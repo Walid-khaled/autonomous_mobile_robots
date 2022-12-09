@@ -94,7 +94,11 @@ https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-
  
 ### PID Controller
 
+<<<<<<< HEAD
 Adding the integral term has affected the removed the steady state error and improved the response. With the parameter tuning, you can obtain better results. Check **"hagen_control/hagen_control/diff_drive_PD_control.py"**.
+=======
+Adding the integral term has affected the removed the steady state error and improved the response. With the parameter tuning, you can obtain better results. Check **"hagen_control/hagen_control/diff_drive_PID_control.py"**
+>>>>>>> ad13bd4a5def48c02d796deda916005e58e6d4bc
 
 https://user-images.githubusercontent.com/90580636/206735154-6048563d-6747-4807-ac38-20395af411c1.mp4
 
