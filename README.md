@@ -1,6 +1,6 @@
 # Autonomous Mobile Robots
 
-This repository contains an implementation of the Autonomous Mobile Robots course for ROCV master's program at Innopolis University. The course is instructed by [Geesara Prathap](https://github.com/GPrathap). So, this repository contains the course material besides my solutions for the assignments. In addition, I developed a PD controller for the differential drive robot. 
+This repository contains an implementation of the Autonomous Mobile Robots course for ROCV master's program at Innopolis University. The course is instructed by [Geesara Prathap](https://github.com/GPrathap). So, this repository contains the course material besides my solutions for the assignments. In addition, I developed a PID controller for the differential drive robot. 
 
 The course contents includes:
 - Motion control (Kinematics, control, and dubins path planning).
@@ -92,6 +92,16 @@ https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-
     <img src="https://user-images.githubusercontent.com/90580636/205748797-a46efa4d-4f1b-4f1b-a161-5048ac3e13c6.png"/>
 </p>
  
+### PID Controller
+
+Adding the integral term has affected the removed the steady state error and improved the response. With the parameter tuning, you can obtain better results.
+
+https://user-images.githubusercontent.com/90580636/206735154-6048563d-6747-4807-ac38-20395af411c1.mp4
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/90580636/206735209-ba78dfee-7d1d-4d6b-aa9d-0103e8b11dcf.png"/>
+</p>
+
 
 ### EKF Localization
 
