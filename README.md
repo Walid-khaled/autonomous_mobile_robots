@@ -82,7 +82,7 @@ As shown, the odom data diverge by time when reaching the path points without an
 
 ### PD Controller
 
-A PD controller was developed to incorporate the odometery data as feedback. It is implemented in 2 stages; reaching yhe target position and correcting the orientation. Check **"hagen_control/hagen_control/diff_drive_PD_control.py"**
+A PD controller was developed to incorporate the odometery data as feedback. It is implemented in 2 stages; reaching yhe target position and correcting the orientation. 
 
 https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-9913-4f9b7f47750d.mp4
 
@@ -94,7 +94,7 @@ https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-
  
 ### PID Controller
 
-Adding the integral term has affected the removed the steady state error and improved the response. With the parameter tuning, you can obtain better results.
+Adding the integral term has affected the removed the steady state error and improved the response. With the parameter tuning, you can obtain better results. Check **"hagen_control/hagen_control/diff_drive_PD_control.py"**.
 
 https://user-images.githubusercontent.com/90580636/206735154-6048563d-6747-4807-ac38-20395af411c1.mp4
 
