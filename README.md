@@ -94,7 +94,7 @@ https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-
  
 ### PID Controller
 
-Adding the integral term has affected the removed the steady state error and improved the response. 
+Adding the integral term has affected the removed the steady state error and improved the response. With the parameter tuning, you can obtain better results.
 
 https://user-images.githubusercontent.com/90580636/206735154-6048563d-6747-4807-ac38-20395af411c1.mp4
 
