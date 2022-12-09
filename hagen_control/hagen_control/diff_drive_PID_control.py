@@ -24,8 +24,10 @@ class MinimalPublisher(Node):
         self.v = []
         self.w = []
         self.refPose = np.array([5,5,np.pi/2])
-        self.kp = 3 
-        self.kd = 0.05
+        self.kp = 4
+        self.ki = 2.7
+        self.kd = 0.4
+        self.e_sum = 0
         self.dTol = 0.05
         self.position = 0
     
@@ -73,8 +75,9 @@ class MinimalPublisher(Node):
                 ePhi = self.wrap_to_pi(phiR - self.phi)
                 phiR_dot = (self.y_dot*(self.x-self.refPose[0])-self.x_dot*(self.y-self.refPose[1]))/((self.x-self.refPose[0])**2+(self.y-self.refPose[1])**2)
                 ePhi_dot = self.wrap_to_pi(phiR_dot - self.phi_dot)
+                self.e_sum = self.e_sum + ePhi*self.Ts
                 v = self.kp*self.D
-                w = self.kp*ePhi + self.kd*ePhi_dot
+                w = self.kp*ePhi + self.ki*self.e_sum + self.kd*ePhi_dot
                 
                 if abs(v)>0.8: v=0.8*np.sign(v)
                 if abs(w)>np.pi/4: w=np.pi/4*np.sign(w)
@@ -92,15 +95,15 @@ class MinimalPublisher(Node):
                     print("Odom data: ", self.odom_data)
                     self.send_vel(0.0, 0.0)
                     self.position = 1
-                    # self.end_controller = True
-                    # self.t = np.linspace(0, self.time_utilized, self.n) # Create time span
-                    # self.plot(self.Simulation_q[1:], self.t)
+                    self.e_sum = 0
 
             else:
                 ePhi = self.wrap_to_pi(self.refPose[2] - self.phi)
                 ePhi_dot = self.wrap_to_pi(-self.phi_dot)
                 v = 0.0
-                w = (self.kp/10)*ePhi + (self.kd/10)*ePhi_dot
+                self.e_sum = self.e_sum + ePhi*self.Ts
+                w = self.kp*ePhi + self.kd*ePhi_dot
+                # w = self.kp*ePhi + self.ki*self.e_sum + self.kd*ePhi_dot
                 
                 if abs(w)>np.pi/4: w=np.pi/4*np.sign(w)
 

@@ -21,7 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
                 'diff_drive = hagen_control.hagen_control_strategy:main',
-                'PD_control = hagen_control.diff_drive_PD_control:main',
+                'PID_control = hagen_control.diff_drive_PID_control:main',
         ],
     },
 )
