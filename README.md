@@ -109,6 +109,14 @@ However the approach of the notebook **"hagen_control/hagen_control/LQR/lqr-02.i
 - K is recalculated at each timestamp unlike the previous approach.
 - The Discrete Algebraic Riccati Equation (DARE) is solved for each state (timestamp) using dynamic programming, instead of solving it once as in the previous approach.
     
+So a ros node was developed for LQR implementation, and below are the results. Check **"hagen_control/hagen_control/diff_drive_LQR.py"**.
+
+https://user-images.githubusercontent.com/90580636/210401939-4b83276f-4775-44e6-bb96-566fc8fa1b1c.mp4
+
+Some notes:
+- There is an advantage of the LQR controller over the previous PID controller. In LQR, there is no need to control the position and the orientation in 2 separate controllers as we did in PID. In PID, we controlled position and after reaching the position, another controller was applied to correct the orientation which makes a shift in position again. But in LQR, only one controller corrects the position and orientation simultaneously until reaching the desired state (x,y, yaw).
+- However, I noted that changing the desired state requires to tweak the Q and R matrices again, which is extremely time consuming if it is done manually.  
+
 
 ### EKF Localization
 
