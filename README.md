@@ -1,6 +1,6 @@
 # Autonomous Mobile Robots
 
-This repository contains an implementation of the Autonomous Mobile Robots course for ROCV master's program at Innopolis University. The course is instructed by [Geesara Prathap](https://github.com/GPrathap). So, this repository contains the course material besides my solutions for the assignments. In addition, I developed a PID controller for the differential drive robot. 
+This repository contains an implementation of the Autonomous Mobile Robots course for ROCV master's program at Innopolis University. The course is instructed by [Geesara Prathap](https://github.com/GPrathap). So, this repository contains the course material besides my solutions for the assignments. In addition, I developed a PID, LQR controllers for the differential drive robot. 
 
 The course contents includes:
 - Motion control (Kinematics, control, and dubins path planning).
