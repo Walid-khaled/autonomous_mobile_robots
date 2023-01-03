@@ -102,6 +102,13 @@ https://user-images.githubusercontent.com/90580636/206735154-6048563d-6747-4807-
     <img src="https://user-images.githubusercontent.com/90580636/206735209-ba78dfee-7d1d-4d6b-aa9d-0103e8b11dcf.png"/>
 </p>
 
+### Linear-Quadratic Controller (LQR)
+Two different approaches were developed to solve the LQR problem. Check the formulation and the explanation in the notebooks in **"hagen_control/hagen_control/LQR/"**.
+However the approach of the notebook **"hagen_control/hagen_control/LQR/lqr-02.ipynb"** was adopted as it showed a better performance. This is because 
+
+- K is recalculated at each timestamp unlike the previous approach.
+- The Discrete Algebraic Riccati Equation (DARE) is solved for each state (timestamp) using dynamic programming, instead of solving it once as in the previous approach.
+    
 
 ### EKF Localization
 
