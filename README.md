@@ -113,12 +113,11 @@ So a ros node was developed for LQR implementation, and below are the results. C
 
 https://user-images.githubusercontent.com/90580636/210401939-4b83276f-4775-44e6-bb96-566fc8fa1b1c.mp4
 
+![Figure_1](https://user-images.githubusercontent.com/90580636/210408071-8ee96c72-1bf6-4ef9-bd04-9a9fc999f658.png)
 
 Some notes:
 - There is an advantage of the LQR controller over the previous PID controller. In LQR, there is no need to control the position and the orientation in 2 separate controllers as we did in PID. In PID, we controlled position and after reaching the position, another controller was applied to correct the orientation which makes a shift in position again. But in LQR, only one controller corrects the position and orientation simultaneously until reaching the desired state (x,y, yaw).
 - However, I noted that changing the desired state requires to tweak the Q and R matrices again, which is extremely time consuming if it is done manually.  
-![Figure_1](https://user-images.githubusercontent.com/90580636/210408071-8ee96c72-1bf6-4ef9-bd04-9a9fc999f658.png)
-
 
 ### EKF Localization
 
