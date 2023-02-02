@@ -40,7 +40,7 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
 1. Setup environment variables (the order is important):
 
        . /usr/share/gazebo/setup.sh
-       . ~/ws/install/setup.bash
+       . ~/ros2_ws/install/setup.bash
 
    > *Tip*: If the command `ros2 pkg list | grep hagen_gazebo` comes up empty after setting up the environment, 
      Gazebo support wasn't correctly setup.
