@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 . /usr/share/gazebo/setup.sh
 . ~/ros2_ws/install/setup.bash
 echo "Launching application, please wait!"

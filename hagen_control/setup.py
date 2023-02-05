@@ -23,6 +23,7 @@ setup(
                 'diff_drive = hagen_control.hagen_control_strategy:main',
                 'PID_control = hagen_control.diff_drive_PID_control:main',
                 'LQR = hagen_control.diff_drive_LQR:main',
+                'MPC = hagen_control.diff_drive_MPC:main',
         ],
     },
 )
