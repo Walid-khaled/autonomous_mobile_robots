@@ -19,7 +19,7 @@ The course contents includes:
     
        mkdir -p ~/ros2_ws/src
        cd ~/ros2_ws/src
-       git clone https://github.com/GPrathap/autonomous_mobile_robots.git
+       git clone https://github.com/Walid-khaled/autonomous_mobile_robots.git
 
 4. Install dependencies:
 
