@@ -54,8 +54,8 @@ class MinimalPublisher(Node):
         self.Fr = np.vstack([Ar**(H+1),Ar**(H+2),Ar**(H+3),Ar**(H+4)])
 
         # Weight matrices
-        self.Q = np.diag(np.full(3*self.h,[0.05, 1.0, 0.1]*self.h)) # [1, 40, 0.1] Penalize X, Y position errors, and YAW ANGLE heading error
-        self.R = np.diag(np.full(2*self.h,[0.01, 0.01]*self.h)) # Penalty for linear velocity and angular velocity efforts 
+        self.Q = np.diag(np.full(3*(self.h+1),[0.05, 1.0, 0.1]*(self.h+1))) # [1, 40, 0.1] Penalize X, Y position errors, and YAW ANGLE heading error
+        self.R = np.diag(np.full(2*(self.h+1),[0.01, 0.01]*(self.h+1))) # Penalty for linear velocity and angular velocity efforts 
 
 
     def euler_from_quaternion(self, quaternion):
@@ -121,14 +121,16 @@ class MinimalPublisher(Node):
             A3 = self.Ad(self.k+3)
             A4 = self.Ad(self.k+4)
 
-
             Z = np.zeros((3,2))
-            G = np.vstack([np.hstack([self.C@A0@self.B,          Z,                      Z,                   Z]), 
-                           np.hstack([self.C@A0@A1@self.B,       self.C@A0@self.B,       Z,                   Z]),
-                           np.hstack([self.C@A0@A1@A2@self.B,    self.C@A0@A1@self.B,    self.C@A0@self.B,    Z]),
-                           np.hstack([self.C@A0@A1@A2@A3@self.B, self.C@A0@A1@A2@self.B, self.C@A0@A1@self.B, self.C@A0@self.B])])
+            # 15x10
+            G = np.vstack([np.hstack([self.C@self.B,             Z,                      Z,                   Z,                Z]), 
+                           np.hstack([self.C@A1@self.B,          self.C@self.B,          Z,                   Z,                Z]),
+                           np.hstack([self.C@A1@A2@self.B,       self.C@A2@self.B,       self.C@self.B,       Z,                Z]),
+                           np.hstack([self.C@A1@A2@A3@self.B,    self.C@A2@A3@self.B,    self.C@A3@self.B,    self.C@self.B,    Z]),
+                           np.hstack([self.C@A1@A2@A3@A4@self.B, self.C@A2@A3@A4@self.B, self.C@A3@A4@self.B, self.C@A4@self.B, self.C@self.B])])
 
-            F = np.vstack([self.C@A0@A1, self.C@A0@A1@A2, self.C@A0@A1@A2@A3, self.C@A0@A1@A2@A3@A4])
+            #15x3
+            F = np.vstack([self.C@A0, self.C@A0@A1, self.C@A0@A1@A2, self.C@A0@A1@A2@A3, self.C@A0@A1@A2@A3@A4])
            
            # Optimal generalized predictive control calculation
             KKgpc = np.linalg.inv(G.T@self.Q@G+ self.R)@G.T@self.Q@-F
