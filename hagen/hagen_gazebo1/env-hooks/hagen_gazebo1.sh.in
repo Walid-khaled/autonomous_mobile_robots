@@ -1,4 +1,4 @@
-# generated from hagen_gazebo/env-hooks/hagen_gazebo.sh.in
+# generated from hagen_gazebo/env-hooks/hagen_gazebo1.sh.in
 
 ament_prepend_unique_value GAZEBO_MODEL_PATH "$AMENT_CURRENT_PREFIX/share/@PROJECT_NAME@/models"
 ament_prepend_unique_value GAZEBO_RESOURCE_PATH "$AMENT_CURRENT_PREFIX/share/@PROJECT_NAME@/worlds"
