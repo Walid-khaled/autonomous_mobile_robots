@@ -34,19 +34,20 @@ for k = 1:length(t)-4
     C = eye(3);
 
     Z = zeros(3,2);
-    Hm = [C*A0*B,Z,Z,Z; ...
-          C*A0*A1*B, C*A0*B, Z, Z; ...
-          C*A0*A1*A2*B, C*A0*A1*B, C*A0*B, Z; ...
-          C*A0*A1*A2*A3*B, C*A0*A1*A2*B, C*A0*A1*B, C*A0*B];
+    Hm = [C*B, Z, Z, Z, Z; ...
+          C*A1*B, C*B, Z, Z, Z; ...
+          C*A1*A2*B, C*A2*B, C*B, Z, Z; ...
+          C*A1*A2*A3*B, C*A2*A3*B, C*A3*B, C*B, Z; ...
+          C*A1*A2*A3*A4*B, C*A2*A3*A4*B, C*A3*A4*B, C*A4*B, C*B];
 
-    Fm = [C*A0*A1, C*A0*A1*A2, C*A0*A1*A2*A3, C*A0*A1*A2*A3*A4].';
+    Fm = [C*A0, C*A0*A1, C*A0*A1*A2, C*A0*A1*A2*A3, C*A0*A1*A2*A3*A4].';
     ar = 0.65;
     Ar = eye(3)*ar; % Reference error dynamics
     H = 0;
     Fr = [Ar^(H+1), Ar^(H+2), Ar^(H+3), Ar^(H+4)].';
     % Weight matrices
-    Qt = diag(repmat([1; 40; 0.1], 4, 1));
-    Rt = diag(repmat([0.001; 0.001], 4, 1));
+    Qt = diag(repmat([1; 40; 0.1], 5, 1));
+    Rt = diag(repmat([0.001; 0.001], 5, 1));
 
     % Optimal control calculation
     KKgpc = (Hm.'*Qt*Hm + Rt)\(Hm.'*Qt*(-Fm));
@@ -64,7 +65,6 @@ for k = 1:length(t)-4
     noise = 0.00; % Set to experiment with noise (e.g. 0.001)
     q = q + Ts*dq + randn(3,1)*noise; % Euler integration
     q(3) = wrapToPi(q(3)); % Map orientation angle to [-pi, pi]
-    disp(e')
     x(m) = q(1);
     y(m) = q(2);
     m = m+1;
