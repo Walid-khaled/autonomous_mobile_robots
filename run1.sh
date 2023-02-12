@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cd ~/ros2_ws/src/autonomous_mobile_robots && code .
 source /opt/ros/humble/setup.bash
 . /usr/share/gazebo/setup.sh
 . ~/ros2_ws/install/setup.bash
