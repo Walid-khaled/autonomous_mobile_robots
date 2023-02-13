@@ -83,7 +83,7 @@ class MinimalPublisher(Node):
             # dq = np.array([v*np.cos(self.q[2]+self.Ts*w/, v*np.sin(self.q[2]+self.Ts*w/2), w])
             # self.q = self.q + self.Ts*dq 
 
-            # Euler Integration 
+            # Euler Integration
             dq = np.array([v*np.cos(self.q[2]), v*np.sin(self.q[2]), w])
             self.q = self.q + self.Ts*dq 
             self.q[2] = self.wrap_to_pi(self.q[2]) # Map orientation angle to [-pi, pi]
@@ -276,7 +276,7 @@ class MinimalPublisher(Node):
             dn = vN.T.dot(r)/(vN.T.dot(vN)) # Normalized orthogonal distance
 
             phiLin = np.arctan2(v[1], v[0]) # Orientation of the line segm 
-            phiRot = np.arctan(5*dn); # If we are far from the line then we need additional rotation to face towards the line. 
+            phiRot = np.arctan(5*dn) # If we are far from the line then we need additional rotation to face towards the line. 
             # If we are on the left side of the line we turn clockwise, otherwise counterclock wise.
             # Gain 5 increases the sensitivity ...
             phiRef = self.wrap_to_pi(phiLin + phiRot)
