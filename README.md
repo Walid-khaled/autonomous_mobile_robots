@@ -103,7 +103,7 @@ https://user-images.githubusercontent.com/90580636/206735154-6048563d-6747-4807-
 </p>
 
 ### Linear-Quadratic Controller (LQR)
-Two different approaches were developed to solve the LQR problem. Check the formulation and the explanation in the notebooks in **"hagen_control/hagen_control/LQR/"**.
+Two different approaches were developed to solve the LQR problem. Check the formulation and the explanation in the notebooks in **"hagen_control/hagen_control/LQR/lqr-01.ipynb"**.
 However the approach of the notebook **"hagen_control/hagen_control/LQR/lqr-02.ipynb"** was adopted as it showed a better performance. This is because 
 
 - K is recalculated at each timestamp unlike the previous approach.
