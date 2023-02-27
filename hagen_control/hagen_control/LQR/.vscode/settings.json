@@ -4,5 +4,11 @@
         "/home/willi/ros2_ws/install/hagen_control/lib/python3.10/site-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/willi/ros2_ws/install/hagen_gazebo/local/lib/python3.10/dist-packages",
+        "/home/willi/ros2_ws/install/hagen_control/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ]
 }
