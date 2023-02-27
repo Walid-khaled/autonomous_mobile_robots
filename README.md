@@ -60,11 +60,13 @@ If you had Gazebo installed when compiling Hagen's packages, Gazebo support shou
        ./run.sh
 
 4. In a new terminal:
+
        . ~/ros2_ws/install/setup.bash
        ros2 run hagen_control desired_controller
        desired_controller should be replaced with one of these executables (PID, LQR, MPC)
 
 5. To reset the simulation:
+
        ros2 service call /reset_simulation std_srvs/srv/Empty
 
 ## Main results
