@@ -129,13 +129,15 @@ Some notes:
 - However, I noted that changing the desired state requires to tweak the Q and R matrices again, which is extremely time consuming if it is done manually.  
 ### Model Predictive Controller (MPC)
 Trajectory tracking error model was developed. Check the formulation and the explanation in the reportin **"hagen_control/hagen_control/MPC/MPC___Trajectory_Tracking_Error_Model.pdf"** and the MATLAB script **"hagen_control/hagen_control/MPC/MPC.m"**.
+
 Ros node was developed for MPC implementation, and below are the results. Check **"hagen_control/hagen_control/diff_drive_MPC.py"**.
 
 When simulating the robot motion, the following response was obtained:
 ![Figure_1](https://user-images.githubusercontent.com/90580636/221671016-8aa50393-030c-4531-b38f-202a48c66991.png)
 
 However, when using the odometry data to update the pose, the following result was obtained:
-![Figure_2](https://user-images.githubusercontent.com/90580636/221671177-81a6d8b3-5eb6-41ea-b3e0-b69e53aecd96.png)
+![Figure_1](https://user-images.githubusercontent.com/90580636/221677411-ac8371b2-05f8-4d3c-8417-8a50840e8ae7.png)
+
 
 ### EKF Localization
 
