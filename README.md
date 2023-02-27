@@ -1,6 +1,6 @@
 # Autonomous Mobile Robots
 
-This repository contains an implementation of the Autonomous Mobile Robots course for ROCV master's program at Innopolis University. The course is instructed by [Geesara Prathap](https://github.com/GPrathap). So, this repository contains the course material besides my solutions for the assignments. In addition, I developed a PID, LQR controllers for the differential drive robot. 
+This repository contains an implementation of the Autonomous Mobile Robots course for ROCV master's program at Innopolis University. The course is instructed by [Geesara Prathap](https://github.com/GPrathap). So, this repository contains the course material besides my solutions for the assignments. In addition, I developed a PID, LQR controllers for the differential drive robot. Trajectory-tracking error model was developed for applying MPC controller.
 
 The course contents includes:
 - Motion control (Kinematics, control, and dubins path planning).
@@ -118,6 +118,14 @@ https://user-images.githubusercontent.com/90580636/210401939-4b83276f-4775-44e6-
 Some notes:
 - There is an advantage of the LQR controller over the previous PID controller. In LQR, there is no need to control the position and the orientation in 2 separate controllers as we did in PID. In PID, we controlled position and after reaching the position, another controller was applied to correct the orientation which makes a shift in position again. But in LQR, only one controller corrects the position and orientation simultaneously until reaching the desired state (x,y, yaw).
 - However, I noted that changing the desired state requires to tweak the Q and R matrices again, which is extremely time consuming if it is done manually.  
+### Model Predictive Controller (MPC)
+Trajectory tracking error model was developed. Check the formulation and the explanation in the reportin **"hagen_control/hagen_control/MPC/MPC___Trajectory_Tracking_Error_Model.pdf"** and the MATLAB script **"hagen_control/hagen_control/MPC/MPC.m"**.
+
+When simulating the robot motion, the following response was obtained:
+![Figure_1](https://user-images.githubusercontent.com/90580636/221671016-8aa50393-030c-4531-b38f-202a48c66991.png)
+
+However, when using the odometry data to update the pose, the following result was obtained:
+![Figure_2](https://user-images.githubusercontent.com/90580636/221671177-81a6d8b3-5eb6-41ea-b3e0-b69e53aecd96.png)
 
 ### EKF Localization
 
