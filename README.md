@@ -91,7 +91,7 @@ As shown, the odom data diverge by time when reaching the path points without an
 
 ### PD Controller
 
-A PD controller was developed to incorporate the odometery data as feedback. It is implemented in 2 stages; reaching yhe target position and correcting the orientation. 
+A PD controller was developed to incorporate the odometery data as feedback. It is implemented in 2 stages; reaching the target position and correcting the orientation. 
 
 https://user-images.githubusercontent.com/90580636/205747639-0930f718-3cef-40f2-9913-4f9b7f47750d.mp4
 
